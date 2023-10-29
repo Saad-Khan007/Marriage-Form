@@ -1,221 +1,223 @@
-<h1>Marriage Bureau</h1>
-<div class="con">
-  <form [formGroup]="marriageForm" (ngSubmit)="onSubmit()">
+<div class="container">
+  <div class="con">
+    <h2>⭑⭑⭑★✪ 𝕽𝖊𝖌𝖎𝖘𝖙𝖗𝖆𝖙𝖎𝖔𝖓 𝕱𝖔𝖗𝖒 ✪★⭑⭑⭑</h2>
+    <form [formGroup]="marriageForm" (ngSubmit)="onSubmit()">
 
-    <div class="form-row">
-      <h3>Personal Info</h3>
-    </div>
-    <div class="form-row">
-      <div class="col-md-4 mb-3">
-        <label>Name<span>*</span></label>
-        <input type="text" class="form-control" placeholder="Name" formControlName="name">
+      <div class="form-row">
+        <h3>Personal Info</h3>
       </div>
-      <div class="col-md-4 mb-3">
-        <label>Father Name<span>*</span></label>
-        <input type="text" class="form-control" placeholder="Father Name" formControlName="fatherName">
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label>Name<span *ngIf="marriageForm.get('name')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="Name" formControlName="name">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>Father Name<span *ngIf="marriageForm.get('fatherName')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="Father Name" formControlName="fatherName">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>Father's Occupation</label>
+          <input type="text" class="form-control" placeholder="Father's Occupation" formControlName="fatherOccupation">
+        </div>
       </div>
-      <div class="col-md-4 mb-3">
-        <label>Father's Occupation</label>
-        <input type="text" class="form-control" placeholder="Father's Occupation" formControlName="fatherOccupation">
+      <div class="form-row">
+        <div class="col-md-3 mb-3">
+          <label>Gender<span *ngIf="marriageForm.get('gender')?.errors?.['required']">*</span></label>
+          <select class="form-control" formControlName="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label>Marital Status<span *ngIf="marriageForm.get('maritalStatus')?.errors?.['required']">*</span></label>
+          <select class="form-control" formControlName="maritalStatus">
+            <option value="Single">Single</option>
+            <option value="Married">Married</option>
+            <option value="Divorced">Divorced</option>
+          </select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label>Sons<span *ngIf="marriageForm.get('sons')?.errors?.['required']">*</span></label>
+          <input type="number" class="form-control" placeholder="Sons" min="0" formControlName="sons">
+        </div>
+        <div class="col-md-3 mb-3">
+          <label>Daughter<span *ngIf="marriageForm.get('daughters')?.errors?.['required']">*</span></label>
+          <input type="number" class="form-control" placeholder="Daughter" min="0" formControlName="daughters">
+        </div>
       </div>
-    </div>
-    <div class="form-row">
-      <div class="col-md-3 mb-3">
-        <label>Gender<span>*</span></label>
-        <select class="form-control" formControlName="gender">
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-        </select>
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label>Life Style</label>
+          <input type="text" class="form-control" placeholder="Life Style" formControlName="lifeStyle">
+        </div>
       </div>
-      <div class="col-md-3 mb-3">
-        <label>Marital Status<span>*</span></label>
-        <select class="form-control" formControlName="maritalStatus">
-          <option value="Single">Single</option>
-          <option value="Married">Married</option>
-          <option value="Divorced">Divorced</option>
-        </select>
+      <div class="form-row">
+        <h3>Physical Info</h3>
       </div>
-      <div class="col-md-3 mb-3">
-        <label>Sons<span>*</span></label>
-        <input type="number" class="form-control" placeholder="Sons" min="0" formControlName="sons">
+      <div class="form-row">
+        <div class="col-md-3 mb-3">
+          <label>Height<span *ngIf="marriageForm.get('height')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="Height" formControlName="height">
+        </div>
+        <div class="col-md-3 mb-3">
+          <label>Age<span *ngIf="marriageForm.get('age')?.errors?.['required']">*</span></label>
+          <input type="number" class="form-control" placeholder="Age" min="18" value="18" formControlName="age">
+        </div>
+        <div class="col-md-3 mb-3">
+          <label>Color<span *ngIf="marriageForm.get('color')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="Color" formControlName="color">
+        </div>
+        <div class="col-md-3 mb-3">
+          <label>Blood Type</label>
+          <input type="text" class="form-control" placeholder="Blood Type" formControlName="bloodType">
+        </div>
       </div>
-      <div class="col-md-3 mb-3">
-        <label>Daughter<span>*</span></label>
-        <input type="number" class="form-control" placeholder="Daughter" min="0" formControlName="daughters">
+      <div class="form-row">
+        <div class="col-md-3 mb-3">
+          <label>Have Beard</label>
+          <select class="form-control" formControlName="haveBeard">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+        <div class="col-md-9 mb-3">
+          <label>Disabilities</label>
+          <input type="text" class="form-control" placeholder="Disabilities" formControlName="disabilities">
+        </div>
       </div>
-    </div>
-    <div class="form-row">
-      <div class="col-md-12 mb-3">
-        <label>Life Style</label>
-        <input type="text" class="form-control" placeholder="Life Style" formControlName="lifeStyle">
+      <div class="form-row">
+        <h3>Qualification Info</h3>
       </div>
-    </div>
-    <div class="form-row">
-      <h3>Physical Info</h3>
-    </div>
-    <div class="form-row">
-      <div class="col-md-3 mb-3">
-        <label>Height<span>*</span></label>
-        <input type="text" class="form-control" placeholder="Height" formControlName="height">
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label>Qualification<span *ngIf="marriageForm.get('qualification')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="Qualification" formControlName="qualification">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label>Islamic Education</label>
+          <select class="form-control" formControlName="islamicEducation">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
       </div>
-      <div class="col-md-3 mb-3">
-        <label>Age<span>*</span></label>
-        <input type="number" class="form-control" placeholder="Age" min="18" value="18" formControlName="age">
+      <div class="form-row">
+        <h3>Family Info</h3>
       </div>
-      <div class="col-md-3 mb-3">
-        <label>Color<span>*</span></label>
-        <input type="text" class="form-control" placeholder="Color" formControlName="color">
+      <div class="form-row">
+        <div class="col-md-2 mb-3">
+          <label>Parents Alive<span *ngIf="marriageForm.get('parentsAlive')?.errors?.['required']">*</span></label>
+          <select class="form-control" formControlName="parentsAlive">
+            <option value="Both">Both</option>
+            <option value="Father">Father</option>
+            <option value="Mother">Mother</option>
+            <option value="No one">No one</option>
+          </select>
+        </div>
+        <div class="col-md-2 mb-3">
+          <label>Brothers<span *ngIf="marriageForm.get('brothers')?.errors?.['required']">*</span></label>
+          <input type="number" class="form-control" placeholder="Brothers" min="0" formControlName="brothers">
+        </div>
+        <div class="col-md-2 mb-3">
+          <label>Married Brothers<span *ngIf="marriageForm.get('marriedBrothers')?.errors?.['required']">*</span></label>
+          <input type="number" class="form-control" placeholder="Married Brothers" min="0"
+            formControlName="marriedBrothers">
+        </div>
+        <div class="col-md-2 mb-3">
+          <label>Sisters<span *ngIf="marriageForm.get('sisters')?.errors?.['required']">*</span></label>
+          <input type="number" class="form-control" placeholder="Sisters" min="0" formControlName="sisters">
+        </div>
+        <div class="col-md-2 mb-3">
+          <label>Married Sisters<span *ngIf="marriageForm.get('marriedSisters')?.errors?.['required']">*</span></label>
+          <input type="number" class="form-control" placeholder="Married Sisters" min="0"
+            formControlName="marriedSisters">
+        </div>
+        <div class="col-md-2 mb-3">
+          <label>Caste<span *ngIf="marriageForm.get('caste')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="Caste" formControlName="caste">
+        </div>
       </div>
-      <div class="col-md-3 mb-3">
-        <label>Blood Type</label>
-        <input type="text" class="form-control" placeholder="Blood Type" formControlName="bloodType">
+      <div class="form-row">
+        <h3>Religious Info</h3>
       </div>
-    </div>
-    <div class="form-row">
-      <div class="col-md-3 mb-3">
-        <label>Have Beard</label>
-        <select class="form-control" formControlName="haveBeard">
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label>Religion<span *ngIf="marriageForm.get('religion')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="Religion" formControlName="religion">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label>Sect<span *ngIf="marriageForm.get('sect')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="Sect" formControlName="sect">
+        </div>
       </div>
-      <div class="col-md-9 mb-3">
-        <label>Disabilities</label>
-        <input type="text" class="form-control" placeholder="Disabilities" formControlName="disabilities">
+      <div class="form-row">
+        <h3>Address Info</h3>
       </div>
-    </div>
-    <div class="form-row">
-      <h3>Qualification Info</h3>
-    </div>
-    <div class="form-row">
-      <div class="col-md-6 mb-3">
-        <label>Qualification<span>*</span></label>
-        <input type="text" class="form-control" placeholder="Qualification" formControlName="qualification">
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label>Country (Lives In)</label>
+          <input type="text" class="form-control" placeholder="Country (Lives In)" formControlName="live_in_country">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>State (Lives In)</label>
+          <input type="text" class="form-control" placeholder="State (Lives In)" formControlName="live_in_state">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>City (Lives In)</label>
+          <input type="text" class="form-control" placeholder="City (Lives In)" formControlName="live_in_city">
+        </div>
       </div>
-      <div class="col-md-6 mb-3">
-        <label>Islamic Education</label>
-        <select class="form-control" formControlName="islamicEducation">
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label>Country (From)</label>
+          <input type="text" class="form-control" placeholder="Country (From)" formControlName="from_country">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>State (From)</label>
+          <input type="text" class="form-control" placeholder="State (From)" formControlName="from_state">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>City (From)</label>
+          <input type="text" class="form-control" placeholder="City (From)" formControlName="from_city">
+        </div>
       </div>
-    </div>
-    <div class="form-row">
-      <h3>Family Info</h3>
-    </div>
-    <div class="form-row">
-      <div class="col-md-2 mb-3">
-        <label>Parents Alive<span>*</span></label>
-        <select class="form-control" formControlName="parentsAlive">
-          <option value="Both">Both</option>
-          <option value="Father">Father</option>
-          <option value="Mother">Mother</option>
-          <option value="No one">No one</option>
-        </select>
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label>Postal Address</label>
+          <input type="text" class="form-control" placeholder="Postal Address" formControlName="postalAddress">
+        </div>
       </div>
-      <div class="col-md-2 mb-3">
-        <label>Brothers<span>*</span></label>
-        <input type="number" class="form-control" placeholder="Brothers" min="0" formControlName="brothers">
+      <div class="form-row">
+        <h3>Other Info</h3>
       </div>
-      <div class="col-md-2 mb-3">
-        <label>Married Brothers<span>*</span></label>
-        <input type="number" class="form-control" placeholder="Married Brothers" min="0"
-          formControlName="marriedBrothers">
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label>House Status</label>
+          <input type="text" class="form-control" placeholder="House Status" formControlName="houseStatus">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label>Requirements<span *ngIf="marriageForm.get('requirements')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="Requirements" formControlName="requirements">
+        </div>
       </div>
-      <div class="col-md-2 mb-3">
-        <label>Sisters<span>*</span></label>
-        <input type="number" class="form-control" placeholder="Sisters" min="0" formControlName="sisters">
+      <div class="form-row">
+        <h3>Job Info</h3>
       </div>
-      <div class="col-md-2 mb-3">
-        <label>Married Sisters<span>*</span></label>
-        <input type="number" class="form-control" placeholder="Married Sisters" min="0"
-          formControlName="marriedSisters">
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label>Profession<span *ngIf="marriageForm.get('profession')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="Profession" formControlName="profession">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>Designation<span *ngIf="marriageForm.get('designation')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="Designation" formControlName="designation">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>Monthly Income<span *ngIf="marriageForm.get('monthlyIncome')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="Monthly Income" formControlName="monthlyIncome">
+        </div>
       </div>
-      <div class="col-md-2 mb-3">
-        <label>Caste<span>*</span></label>
-        <input type="text" class="form-control" placeholder="Caste" formControlName="caste">
-      </div>
-    </div>
-    <div class="form-row">
-      <h3>Religious Info</h3>
-    </div>
-    <div class="form-row">
-      <div class="col-md-6 mb-3">
-        <label>Religion<span>*</span></label>
-        <input type="text" class="form-control" placeholder="Religion" formControlName="religion">
-      </div>
-      <div class="col-md-6 mb-3">
-        <label>Sect<span>*</span></label>
-        <input type="text" class="form-control" placeholder="Sect" formControlName="sect">
-      </div>
-    </div>
-    <div class="form-row">
-      <h3>Address Info</h3>
-    </div>
-    <div class="form-row">
-      <div class="col-md-4 mb-3">
-        <label>Country (Lives In)</label>
-        <input type="text" class="form-control" placeholder="Country (Lives In)" formControlName="live_in_country">
-      </div>
-      <div class="col-md-4 mb-3">
-        <label>State (Lives In)</label>
-        <input type="text" class="form-control" placeholder="State (Lives In)" formControlName="live_in_state">
-      </div>
-      <div class="col-md-4 mb-3">
-        <label>City (Lives In)</label>
-        <input type="text" class="form-control" placeholder="City (Lives In)" formControlName="live_in_city">
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="col-md-4 mb-3">
-        <label>Country (From)</label>
-        <input type="text" class="form-control" placeholder="Country (From)" formControlName="from_country">
-      </div>
-      <div class="col-md-4 mb-3">
-        <label>State (From)</label>
-        <input type="text" class="form-control" placeholder="State (From)" formControlName="from_state">
-      </div>
-      <div class="col-md-4 mb-3">
-        <label>City (From)</label>
-        <input type="text" class="form-control" placeholder="City (From)" formControlName="from_city">
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="col-md-12 mb-3">
-        <label>Postal Address</label>
-        <input type="text" class="form-control" placeholder="Postal Address" formControlName="postalAddress">
-      </div>
-    </div>
-    <div class="form-row">
-      <h3>Other Info</h3>
-    </div>
-    <div class="form-row">
-      <div class="col-md-6 mb-3">
-        <label>House Status</label>
-        <input type="text" class="form-control" placeholder="House Status" formControlName="houseStatus">
-      </div>
-      <div class="col-md-6 mb-3">
-        <label>Requirements<span>*</span></label>
-        <input type="text" class="form-control" placeholder="Requirements" formControlName="requirements">
-      </div>
-    </div>
-    <div class="form-row">
-      <h3>Job Info</h3>
-    </div>
-    <div class="form-row">
-      <div class="col-md-4 mb-3">
-        <label>Profession<span>*</span></label>
-        <input type="text" class="form-control" placeholder="Profession" formControlName="profession">
-      </div>
-      <div class="col-md-4 mb-3">
-        <label>Designation<span>*</span></label>
-        <input type="text" class="form-control" placeholder="Designation" formControlName="designation">
-      </div>
-      <div class="col-md-4 mb-3">
-        <label>Monthly Income<span>*</span></label>
-        <input type="text" class="form-control" placeholder="Monthly Income" formControlName="monthlyIncome">
-      </div>
-    </div>
-    <button class="btn btn-primary" type="submit" [disabled]="marriageForm.invalid">Generate PDF</button>
-  </form>
+      <button class="btn btn-primary" type="submit" [disabled]="marriageForm.invalid">Generate PDF</button>
+    </form>
+  </div>
 </div>

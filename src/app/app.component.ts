@@ -66,6 +66,14 @@ export class AppComponent {
     const docDefinition = {
       content: [
         {
+          text: 'Marriage Makers',
+          style: 'heading'
+        },
+        {
+          text: 'Registration Form',
+          style: 'heading2'
+        },
+        {
           table: {
             widths: ['*', '*'],
             body: [
@@ -242,11 +250,23 @@ export class AppComponent {
         'table-heading': {
           bold: true,
           alignment: 'center',
-          width: 100
+          width: 100,
+          margin: [0, 20, 0, 0]
+        },
+        'heading': {
+          fontSize: 18,
+          bold: true,
+          alignment: 'center',
+          margin: [0, 0, 0, 0]
+        },
+        'heading2': {
+          fontSize: 10,
+          bold: true,
+          alignment: 'center',
+          margin: [0, 0, 0, 20]
         }
       }
     } as any;
-    pdfMake.createPdf(docDefinition).open();
     pdfMake.createPdf(docDefinition).download(name + '.pdf');
   }
 }
