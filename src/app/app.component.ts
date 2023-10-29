@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import * as pdfMake from 'pdfmake/build/pdfmake';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+(pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-root',
@@ -9,13 +12,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AppComponent {
   title = 'Shadi-Form';
   marriageForm: FormGroup;
+  marriageFormPDF: any = null;
 
   constructor(private formBuilder: FormBuilder) {
     this.marriageForm = this.formBuilder.group({
       name: ['', Validators.required],
       fatherName: ['', Validators.required],
       fatherOccupation: [''],
-      gender: ['', Validators.required],
+      gender: ['Male', Validators.required],
       maritalStatus: ['Single', Validators.required],
       sons: [0, Validators.required],
       daughters: [0, Validators.required],
@@ -52,8 +56,197 @@ export class AppComponent {
   }
 
   onSubmit() {
-    // if (this.marriageForm.valid) {
-      console.log(this.marriageForm.value);
-    // }
+    if (this.marriageForm.valid) {
+      this.marriageFormPDF = this.marriageForm.value
+      this.generatePDF(this.marriageFormPDF.name)
+    }
+  }
+
+  generatePDF(name: string) {
+    const docDefinition = {
+      content: [
+        {
+          table: {
+            widths: ['*', '*'],
+            body: [
+              [
+                {
+                  text: 'Personal Info',
+                  style: 'table-heading',
+                  alignment: 'center',
+                  colSpan: 2
+                },
+                ''
+              ],
+              ['Name', this.marriageFormPDF.name],
+              ['Father Name', this.marriageFormPDF.fatherName],
+              ['Father\'s Occupation', this.marriageFormPDF.fatherOccupation],
+              ['Gender', this.marriageFormPDF.gender],
+              ['Marital Status', this.marriageFormPDF.maritalStatus],
+              ['Sons', this.marriageFormPDF.sons],
+              ['Daughters', this.marriageFormPDF.daughters],
+              ['Life Style', this.marriageFormPDF.lifeStyle]
+            ]
+          },
+          layout: 'lightHorizontalLines'
+        },
+        {
+          table: {
+            widths: ['*', '*'],
+            body: [
+              [
+                {
+                  text: 'Physical Info',
+                  style: 'table-heading',
+                  alignment: 'center',
+                  colSpan: 2
+                },
+                ''
+              ],
+              ['Height', this.marriageFormPDF.height],
+              ['Age', this.marriageFormPDF.age],
+              ['Color', this.marriageFormPDF.color],
+              ['Body Type', this.marriageFormPDF.bloodType],
+              ['Disabilities', this.marriageFormPDF.disabilities],
+              ['Have Beard', this.marriageFormPDF.haveBeard]
+            ]
+          },
+          layout: 'lightHorizontalLines'
+        },
+        {
+          table: {
+            widths: ['*', '*'],
+            body: [
+              [
+                {
+                  text: 'Qualification Info',
+                  style: 'table-heading',
+                  alignment: 'center',
+                  colSpan: 2
+                },
+                ''
+              ],
+              ['Qualification', this.marriageFormPDF.qualification],
+              ['Islamic Education', this.marriageFormPDF.islamicEducation]
+            ]
+          },
+          layout: 'lightHorizontalLines'
+        },
+        {
+          table: {
+            widths: ['*', '*'],
+            body: [
+              [
+                {
+                  text: 'Family Info',
+                  style: 'table-heading',
+                  alignment: 'center',
+                  colSpan: 2
+                },
+                ''
+              ],
+              ['Parents Alive', this.marriageFormPDF.parentsAlive],
+              ['Brothers', this.marriageFormPDF.brothers],
+              ['Married Brothers', this.marriageFormPDF.marriedBrothers],
+              ['Sisters', this.marriageFormPDF.sisters],
+              ['Married Sisters', this.marriageFormPDF.marriedSisters],
+              ['Caste', this.marriageFormPDF.caste]
+            ]
+          },
+          layout: 'lightHorizontalLines'
+        },
+        {
+          table: {
+            widths: ['*', '*'],
+            body: [
+              [
+                {
+                  text: 'Religious Info',
+                  style: 'table-heading',
+                  alignment: 'center',
+                  colSpan: 2
+                },
+                ''
+              ],
+              ['Religion', this.marriageFormPDF.religion],
+              ['Sect', this.marriageFormPDF.sect]
+            ]
+          },
+          layout: 'lightHorizontalLines'
+        },
+        {
+          table: {
+            widths: ['*', '*'],
+            body: [
+              [
+                {
+                  text: 'Address Info',
+                  style: 'table-heading',
+                  alignment: 'center',
+                  colSpan: 2
+                },
+                ''
+              ],
+              ['Country (Lives In)', this.marriageFormPDF.live_in_country],
+              ['State (Lives In)', this.marriageFormPDF.live_in_state],
+              ['City (Lives In)', this.marriageFormPDF.live_in_city],
+              ['Country (From)', this.marriageFormPDF.from_country],
+              ['State (From)', this.marriageFormPDF.from_state],
+              ['City (From)', this.marriageFormPDF.from_city],
+              ['Postal Address', this.marriageFormPDF.postalAddress]
+            ]
+          },
+          layout: 'lightHorizontalLines'
+        },
+        {
+          table: {
+            widths: ['*', '*'],
+            body: [
+              [
+                {
+                  text: 'Other Info',
+                  style: 'table-heading',
+                  alignment: 'center',
+                  colSpan: 2
+                },
+                ''
+              ],
+              ['House Status', this.marriageFormPDF.houseStatus],
+              ['Requirements', this.marriageFormPDF.requirements]
+            ]
+          },
+          layout: 'lightHorizontalLines'
+        },
+        {
+          table: {
+            widths: ['*', '*'],
+            body: [
+              [
+                {
+                  text: 'Job Info',
+                  style: 'table-heading',
+                  alignment: 'center',
+                  colSpan: 2
+                },
+                ''
+              ],
+              ['Profession', this.marriageFormPDF.profession],
+              ['Designation', this.marriageFormPDF.designation],
+              ['Monthly Income', this.marriageFormPDF.monthlyIncome]
+            ]
+          },
+          layout: 'lightHorizontalLines'
+        }
+      ],
+      styles: {
+        'table-heading': {
+          bold: true,
+          alignment: 'center',
+          width: 100
+        }
+      }
+    } as any;
+    pdfMake.createPdf(docDefinition).open();
+    pdfMake.createPdf(docDefinition).download(name + '.pdf');
   }
 }

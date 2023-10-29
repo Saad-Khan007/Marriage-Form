@@ -14,14 +14,25 @@ h3 {
     padding: 10px;
 }
 
-span{
+span {
     color: red;
     font-size: 18px;
     font-weight: 900;
     margin-left: 5px;
 }
 
-button:disabled{
+button:disabled {
     background-color: red;
     border: red;
+}
+
+.table-heading {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.table-heading-row {
+    // background-color: #007bff !important;
 }
