@@ -1,54 +1,63 @@
 <div class="container">
   <div class="con">
     <h2>⭑⭑⭑★✪ 𝕽𝖊𝖌𝖎𝖘𝖙𝖗𝖆𝖙𝖎𝖔𝖓 𝕱𝖔𝖗𝖒 ✪★⭑⭑⭑</h2>
+    <button class="btn btn-secondary float" (click)="languageToggler()">{{lang}}</button>
     <form [formGroup]="marriageForm" (ngSubmit)="onSubmit()">
 
       <div class="form-row">
-        <h3>Personal Info</h3>
+        <h3>{{ 'Personal Info' | translate }}</h3>
       </div>
       <div class="form-row">
         <div class="col-md-4 mb-3">
-          <label>Name<span *ngIf="marriageForm.get('name')?.errors?.['required']">*</span></label>
-          <input type="text" class="form-control" placeholder="Name" formControlName="name">
+          <label>{{'Name' | translate}}<span *ngIf="marriageForm.get('name')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="{{'Name'  | translate}}" formControlName="name">
         </div>
         <div class="col-md-4 mb-3">
-          <label>Father Name<span *ngIf="marriageForm.get('fatherName')?.errors?.['required']">*</span></label>
-          <input type="text" class="form-control" placeholder="Father Name" formControlName="fatherName">
+          <label>{{'Father Name' | translate}}<span
+              *ngIf="marriageForm.get('fatherName')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="{{'Father Name'  | translate}}"
+            formControlName="fatherName">
         </div>
         <div class="col-md-4 mb-3">
-          <label>Father's Occupation</label>
-          <input type="text" class="form-control" placeholder="Father's Occupation" formControlName="fatherOccupation">
+          <label>{{"Fathers Occupation" | translate}}</label>
+          <input type="text" class="form-control" placeholder="{{'Fathers Occupation'  | translate}}"
+            formControlName="fatherOccupation">
         </div>
       </div>
       <div class="form-row">
         <div class="col-md-3 mb-3">
-          <label>Gender<span *ngIf="marriageForm.get('gender')?.errors?.['required']">*</span></label>
+          <label>{{'Gender' | translate}}<span *ngIf="marriageForm.get('gender')?.errors?.['required']">*</span></label>
           <select class="form-control" formControlName="gender">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
+            <option value="Male">{{'Male' | translate}}</option>
+            <option value="Female">{{'Female' | translate}}</option>
           </select>
         </div>
         <div class="col-md-3 mb-3">
-          <label>Marital Status<span *ngIf="marriageForm.get('maritalStatus')?.errors?.['required']">*</span></label>
+          <label>{{'Marital Status' | translate}}<span
+              *ngIf="marriageForm.get('maritalStatus')?.errors?.['required']">*</span></label>
           <select class="form-control" formControlName="maritalStatus">
-            <option value="Single">Single</option>
-            <option value="Married">Married</option>
-            <option value="Divorced">Divorced</option>
+            <option value="Single">{{'Single' | translate}}</option>
+            <option value="Married">{{'Married' | translate}}</option>
+            <option value="Divorced">{{'Divorced' | translate}}</option>
           </select>
         </div>
         <div class="col-md-3 mb-3">
-          <label>Sons<span *ngIf="marriageForm.get('sons')?.errors?.['required']">*</span></label>
-          <input type="number" class="form-control" placeholder="Sons" min="0" formControlName="sons">
+          <label>{{'Sons' | translate}}<span *ngIf="marriageForm.get('sons')?.errors?.['required']">*</span></label>
+          <input type="number" class="form-control" placeholder="{{'Sons'  | translate}}" min="0"
+            formControlName="sons">
         </div>
         <div class="col-md-3 mb-3">
-          <label>Daughter<span *ngIf="marriageForm.get('daughters')?.errors?.['required']">*</span></label>
-          <input type="number" class="form-control" placeholder="Daughter" min="0" formControlName="daughters">
+          <label>{{'Daughter' | translate}}<span
+              *ngIf="marriageForm.get('daughters')?.errors?.['required']">*</span></label>
+          <input type="number" class="form-control" placeholder="{{'Daughter'  | translate}}" min="0"
+            formControlName="daughters">
         </div>
       </div>
       <div class="form-row">
         <div class="col-md-12 mb-3">
-          <label>Life Style</label>
-          <input type="text" class="form-control" placeholder="Life Style" formControlName="lifeStyle">
+          <label>{{'Life Style' | translate}}</label>
+          <input type="text" class="form-control" placeholder="{{'Life Style'  | translate}}"
+            formControlName="lifeStyle">
         </div>
       </div>
       <div class="form-row">
@@ -56,168 +65,197 @@
       </div>
       <div class="form-row">
         <div class="col-md-3 mb-3">
-          <label>Height<span *ngIf="marriageForm.get('height')?.errors?.['required']">*</span></label>
-          <input type="text" class="form-control" placeholder="Height" formControlName="height">
+          <label>{{'Height' | translate}}<span *ngIf="marriageForm.get('height')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="{{'Height'  | translate}}" formControlName="height">
         </div>
         <div class="col-md-3 mb-3">
-          <label>Age<span *ngIf="marriageForm.get('age')?.errors?.['required']">*</span></label>
-          <input type="number" class="form-control" placeholder="Age" min="18" value="18" formControlName="age">
+          <label>{{'Age' | translate}}<span *ngIf="marriageForm.get('age')?.errors?.['required']">*</span></label>
+          <input type="number" class="form-control" placeholder="{{'Age'  | translate}}" min="18" value="18"
+            formControlName="age">
         </div>
         <div class="col-md-3 mb-3">
-          <label>Color<span *ngIf="marriageForm.get('color')?.errors?.['required']">*</span></label>
-          <input type="text" class="form-control" placeholder="Color" formControlName="color">
+          <label>{{'Color' | translate}}<span *ngIf="marriageForm.get('color')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="{{'Color'  | translate}}" formControlName="color">
         </div>
         <div class="col-md-3 mb-3">
-          <label>Blood Type</label>
-          <input type="text" class="form-control" placeholder="Blood Type" formControlName="bloodType">
+          <label>{{'Body Type' | translate}}</label>
+          <input type="text" class="form-control" placeholder="{{'Body Type'  | translate}}" formControlName="bodyType">
         </div>
       </div>
       <div class="form-row">
         <div class="col-md-3 mb-3">
-          <label>Have Beard</label>
+          <label>{{'Have Beard' | translate}}</label>
           <select class="form-control" formControlName="haveBeard">
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
+            <option value="Yes">{{'Yes' | translate}}</option>
+            <option value="No">{{'No' | translate}}</option>
           </select>
         </div>
         <div class="col-md-9 mb-3">
-          <label>Disabilities</label>
-          <input type="text" class="form-control" placeholder="Disabilities" formControlName="disabilities">
+          <label>{{'Disabilities' | translate}}</label>
+          <input type="text" class="form-control" placeholder="{{'Disabilities'  | translate}}"
+            formControlName="disabilities">
         </div>
       </div>
       <div class="form-row">
-        <h3>Qualification Info</h3>
+        <h3>{{'Qualification Info' | translate}}</h3>
       </div>
       <div class="form-row">
         <div class="col-md-6 mb-3">
-          <label>Qualification<span *ngIf="marriageForm.get('qualification')?.errors?.['required']">*</span></label>
-          <input type="text" class="form-control" placeholder="Qualification" formControlName="qualification">
+          <label>{{'Qualification' | translate}}<span
+              *ngIf="marriageForm.get('qualification')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="{{'Qualification'  | translate}}"
+            formControlName="qualification">
         </div>
         <div class="col-md-6 mb-3">
-          <label>Islamic Education</label>
+          <label>{{'Islamic Education' | translate}}</label>
           <select class="form-control" formControlName="islamicEducation">
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
+            <option value="Yes">{{'Yes' | translate}}</option>
+            <option value="No">{{'No' | translate}}</option>
           </select>
         </div>
       </div>
       <div class="form-row">
-        <h3>Family Info</h3>
+        <h3>{{'Family Info' | translate}}</h3>
       </div>
       <div class="form-row">
         <div class="col-md-2 mb-3">
-          <label>Parents Alive<span *ngIf="marriageForm.get('parentsAlive')?.errors?.['required']">*</span></label>
+          <label>{{'Parents Alive' | translate}}<span
+              *ngIf="marriageForm.get('parentsAlive')?.errors?.['required']">*</span></label>
           <select class="form-control" formControlName="parentsAlive">
-            <option value="Both">Both</option>
-            <option value="Father">Father</option>
-            <option value="Mother">Mother</option>
-            <option value="No one">No one</option>
+            <option value="Both">{{'Both' | translate}}</option>
+            <option value="Father">{{'Father' | translate}}</option>
+            <option value="Mother">{{'Mother' | translate}}</option>
+            <option value="No one">{{'No one' | translate}}</option>
           </select>
         </div>
         <div class="col-md-2 mb-3">
-          <label>Brothers<span *ngIf="marriageForm.get('brothers')?.errors?.['required']">*</span></label>
-          <input type="number" class="form-control" placeholder="Brothers" min="0" formControlName="brothers">
+          <label>{{'Brothers' | translate}}<span
+              *ngIf="marriageForm.get('brothers')?.errors?.['required']">*</span></label>
+          <input type="number" class="form-control" placeholder="{{'Brothers'  | translate}}" min="0"
+            formControlName="brothers">
         </div>
         <div class="col-md-2 mb-3">
-          <label>Married Brothers<span *ngIf="marriageForm.get('marriedBrothers')?.errors?.['required']">*</span></label>
-          <input type="number" class="form-control" placeholder="Married Brothers" min="0"
+          <label>{{'Married Brothers' | translate}}<span
+              *ngIf="marriageForm.get('marriedBrothers')?.errors?.['required']">*</span></label>
+          <input type="number" class="form-control" placeholder="{{'Married Brothers'  | translate}}" min="0"
             formControlName="marriedBrothers">
         </div>
         <div class="col-md-2 mb-3">
-          <label>Sisters<span *ngIf="marriageForm.get('sisters')?.errors?.['required']">*</span></label>
-          <input type="number" class="form-control" placeholder="Sisters" min="0" formControlName="sisters">
+          <label>{{'Sisters' | translate}}<span
+              *ngIf="marriageForm.get('sisters')?.errors?.['required']">*</span></label>
+          <input type="number" class="form-control" placeholder="{{'Sisters'  | translate}}" min="0"
+            formControlName="sisters">
         </div>
         <div class="col-md-2 mb-3">
-          <label>Married Sisters<span *ngIf="marriageForm.get('marriedSisters')?.errors?.['required']">*</span></label>
-          <input type="number" class="form-control" placeholder="Married Sisters" min="0"
+          <label>{{'Married Sisters' | translate}}<span
+              *ngIf="marriageForm.get('marriedSisters')?.errors?.['required']">*</span></label>
+          <input type="number" class="form-control" placeholder="{{'Married Sisters'  | translate}}" min="0"
             formControlName="marriedSisters">
         </div>
         <div class="col-md-2 mb-3">
-          <label>Caste<span *ngIf="marriageForm.get('caste')?.errors?.['required']">*</span></label>
-          <input type="text" class="form-control" placeholder="Caste" formControlName="caste">
+          <label>{{'Caste' | translate}}<span *ngIf="marriageForm.get('caste')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="{{'Caste'  | translate}}" formControlName="caste">
         </div>
       </div>
       <div class="form-row">
-        <h3>Religious Info</h3>
+        <h3>{{'Religious Info' | translate}}</h3>
       </div>
       <div class="form-row">
         <div class="col-md-6 mb-3">
-          <label>Religion<span *ngIf="marriageForm.get('religion')?.errors?.['required']">*</span></label>
-          <input type="text" class="form-control" placeholder="Religion" formControlName="religion">
+          <label>{{'Religion' | translate}}<span
+              *ngIf="marriageForm.get('religion')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="{{'Religion'  | translate}}" formControlName="religion">
         </div>
         <div class="col-md-6 mb-3">
-          <label>Sect<span *ngIf="marriageForm.get('sect')?.errors?.['required']">*</span></label>
-          <input type="text" class="form-control" placeholder="Sect" formControlName="sect">
+          <label>{{'Sect' | translate}}<span *ngIf="marriageForm.get('sect')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="{{'Sect'  | translate}}" formControlName="sect">
         </div>
       </div>
       <div class="form-row">
-        <h3>Address Info</h3>
+        <h3>{{'Address Info' | translate}}</h3>
       </div>
       <div class="form-row">
         <div class="col-md-4 mb-3">
-          <label>Country (Lives In)</label>
-          <input type="text" class="form-control" placeholder="Country (Lives In)" formControlName="live_in_country">
+          <label>{{'Country (Lives In)' | translate}}</label>
+          <input type="text" class="form-control" placeholder="{{'Country (Lives In)'  | translate}}"
+            formControlName="live_in_country">
         </div>
         <div class="col-md-4 mb-3">
-          <label>State (Lives In)</label>
-          <input type="text" class="form-control" placeholder="State (Lives In)" formControlName="live_in_state">
+          <label>{{'State (Lives In)' | translate}}</label>
+          <input type="text" class="form-control" placeholder="{{'State (Lives In)'  | translate}}"
+            formControlName="live_in_state">
         </div>
         <div class="col-md-4 mb-3">
-          <label>City (Lives In)</label>
-          <input type="text" class="form-control" placeholder="City (Lives In)" formControlName="live_in_city">
+          <label>{{'City (Lives In)' | translate}}</label>
+          <input type="text" class="form-control" placeholder="{{'City (Lives In)'  | translate}}"
+            formControlName="live_in_city">
         </div>
       </div>
       <div class="form-row">
         <div class="col-md-4 mb-3">
-          <label>Country (From)</label>
-          <input type="text" class="form-control" placeholder="Country (From)" formControlName="from_country">
+          <label>{{'Country (From)' | translate}}</label>
+          <input type="text" class="form-control" placeholder="{{'Country (From)'  | translate}}"
+            formControlName="from_country">
         </div>
         <div class="col-md-4 mb-3">
-          <label>State (From)</label>
-          <input type="text" class="form-control" placeholder="State (From)" formControlName="from_state">
+          <label>{{'State (From)' | translate}}</label>
+          <input type="text" class="form-control" placeholder="{{'State (From)'  | translate}}"
+            formControlName="from_state">
         </div>
         <div class="col-md-4 mb-3">
-          <label>City (From)</label>
-          <input type="text" class="form-control" placeholder="City (From)" formControlName="from_city">
+          <label>{{'City (From)' | translate}}</label>
+          <input type="text" class="form-control" placeholder="{{'City (From)'  | translate}}"
+            formControlName="from_city">
         </div>
       </div>
       <div class="form-row">
         <div class="col-md-12 mb-3">
-          <label>Postal Address</label>
-          <input type="text" class="form-control" placeholder="Postal Address" formControlName="postalAddress">
+          <label>{{'Postal Address' | translate}}</label>
+          <input type="text" class="form-control" placeholder="{{'Postal Address'  | translate}}"
+            formControlName="postalAddress">
         </div>
       </div>
       <div class="form-row">
-        <h3>Other Info</h3>
+        <h3>{{'Other Info' | translate}}</h3>
       </div>
       <div class="form-row">
         <div class="col-md-6 mb-3">
-          <label>House Status</label>
-          <input type="text" class="form-control" placeholder="House Status" formControlName="houseStatus">
+          <label>{{'House Status' | translate}}</label>
+          <input type="text" class="form-control" placeholder="{{'House Status'  | translate}}"
+            formControlName="houseStatus">
         </div>
         <div class="col-md-6 mb-3">
-          <label>Requirements<span *ngIf="marriageForm.get('requirements')?.errors?.['required']">*</span></label>
-          <input type="text" class="form-control" placeholder="Requirements" formControlName="requirements">
+          <label>{{'Requirements' | translate}}<span
+              *ngIf="marriageForm.get('requirements')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="{{'Requirements'  | translate}}"
+            formControlName="requirements">
         </div>
       </div>
       <div class="form-row">
-        <h3>Job Info</h3>
+        <h3>{{'Job Info' | translate}}</h3>
       </div>
       <div class="form-row">
         <div class="col-md-4 mb-3">
-          <label>Profession<span *ngIf="marriageForm.get('profession')?.errors?.['required']">*</span></label>
-          <input type="text" class="form-control" placeholder="Profession" formControlName="profession">
+          <label>{{'Profession' | translate}}<span
+              *ngIf="marriageForm.get('profession')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="{{'Profession'  | translate}}"
+            formControlName="profession">
         </div>
         <div class="col-md-4 mb-3">
-          <label>Designation<span *ngIf="marriageForm.get('designation')?.errors?.['required']">*</span></label>
-          <input type="text" class="form-control" placeholder="Designation" formControlName="designation">
+          <label>{{'Designation' | translate}}<span
+              *ngIf="marriageForm.get('designation')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="{{'Designation'  | translate}}"
+            formControlName="designation">
         </div>
         <div class="col-md-4 mb-3">
-          <label>Monthly Income<span *ngIf="marriageForm.get('monthlyIncome')?.errors?.['required']">*</span></label>
-          <input type="text" class="form-control" placeholder="Monthly Income" formControlName="monthlyIncome">
+          <label>{{'Monthly Income' | translate}}<span
+              *ngIf="marriageForm.get('monthlyIncome')?.errors?.['required']">*</span></label>
+          <input type="text" class="form-control" placeholder="{{'Monthly Income'  | translate}}"
+            formControlName="monthlyIncome">
         </div>
       </div>
-      <button class="btn btn-primary" type="submit" [disabled]="marriageForm.invalid">Generate PDF</button>
+      <button class="btn btn-primary" type="submit" [disabled]="marriageForm.invalid">{{'Generate PDF' |
+        translate}}</button>
     </form>
   </div>
 </div>

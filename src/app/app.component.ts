@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
@@ -13,8 +14,11 @@ export class AppComponent {
   title = 'Shadi-Form';
   marriageForm: FormGroup;
   marriageFormPDF: any = null;
+  lang: any = 'Translate to Urdu';
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private translate: TranslateService) {
+    translate.addLangs(['en', 'ur']);
+    translate.setDefaultLang('en');
     this.marriageForm = this.formBuilder.group({
       name: ['', Validators.required],
       fatherName: ['', Validators.required],
@@ -27,7 +31,7 @@ export class AppComponent {
       height: ['', Validators.required],
       age: [18, Validators.required],
       color: ['', Validators.required],
-      bloodType: [''],
+      bodyType: [''],
       haveBeard: ['Yes'],
       disabilities: [''],
       qualification: ['', Validators.required],
@@ -114,7 +118,7 @@ export class AppComponent {
               ['Height', this.marriageFormPDF.height],
               ['Age', this.marriageFormPDF.age],
               ['Color', this.marriageFormPDF.color],
-              ['Body Type', this.marriageFormPDF.bloodType],
+              ['Body Type', this.marriageFormPDF.bodyType],
               ['Disabilities', this.marriageFormPDF.disabilities],
               ['Have Beard', this.marriageFormPDF.haveBeard]
             ]
@@ -268,5 +272,15 @@ export class AppComponent {
       }
     } as any;
     pdfMake.createPdf(docDefinition).download(name + '.pdf');
+  }
+
+  languageToggler() {
+    if (this.lang == 'Translate to Urdu') {
+      this.translate.use('ur');
+      this.lang = 'Translate to English';
+    } else {
+      this.translate.use('en');
+      this.lang = 'Translate to Urdu';
+    }
   }
 }
